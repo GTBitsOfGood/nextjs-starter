@@ -1,6 +1,7 @@
 import App from "next/app";
 import React from "react";
 import Head from "next/head";
+import Header from "../client/components/Header";
 import "../public/static/App.css";
 
 class MyApp extends App {
@@ -13,7 +14,10 @@ class MyApp extends App {
           <title>Nextjs-Starter</title>
         </Head>
         <div className="App">
-          <Component {...pageProps} />
+          <Header />
+          <div className="Content">
+            <Component {...pageProps} />
+          </div>
         </div>
       </>
     );

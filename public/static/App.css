@@ -1,3 +1,7 @@
+body {
+    font-family: sans-serif;
+}
+
 html, body, #__next {
     width: 100%;
     height: 100%;
@@ -7,7 +11,16 @@ html, body, #__next {
 }
 
 .App {
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.App > .Content {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }

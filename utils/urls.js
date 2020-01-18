@@ -7,7 +7,8 @@ export default {
     : process.env.MONGO_DEV_DB || "mongodb://localhost:27017",
   dbName: "nextjs",
   pages: {
-    index: "/index"
+    index: "/",
+    ssr: "/ssr"
   },
   api: {
     example: "/api/example"
