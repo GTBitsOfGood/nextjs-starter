@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ExampleText from "../client/components/ExampleText";
-import { exampleAction } from "../server/example/actions/example";
+import { helloWorld } from "../client/actions/api";
 
 const SSRPage = ({ message, errorMessage }) => {
   return (
@@ -23,7 +23,7 @@ const SSRPage = ({ message, errorMessage }) => {
 };
 
 SSRPage.getInitialProps = async () => {
-  return exampleAction()
+  return helloWorld()
     .then(payload => {
       return {
         message: payload
