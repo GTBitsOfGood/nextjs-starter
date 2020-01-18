@@ -1,0 +1,9 @@
+.Container {
+    display: flex;
+    flex-direction: row;
+}
+
+.Text {
+    font-size: 14px;
+    font-weight: bold;
+}
