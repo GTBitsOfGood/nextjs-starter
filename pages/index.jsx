@@ -1,5 +1,4 @@
 import React from "react";
-import ExampleText from "../client/components/ExampleText";
 import { helloWorld } from "../client/actions/api";
 
 const HomePage = () => {
@@ -14,12 +13,12 @@ const HomePage = () => {
 
   return (
     <>
-      <ExampleText>Welcome to Next.js!</ExampleText>
-      <h2>
+      <h2>Welcome to Next.js!</h2>
+      <h3>
         This page is static rendered, because all API calls are made in
         useEffect
-      </h2>
-      <ExampleText>{payload}</ExampleText>
+      </h3>
+      <h4>{payload}</h4>
       <p>You can tell because the text above flashes on page refresh</p>
     </>
   );
