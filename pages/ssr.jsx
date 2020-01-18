@@ -7,6 +7,7 @@ const SSRPage = ({ message, errorMessage }) => {
   return (
     <>
       <ExampleText>Welcome to Next.js!</ExampleText>
+      <h2>This page is server-side rendered because it uses getInitialProps</h2>
       {errorMessage == null ? (
         <ExampleText>
           SSR Message:
@@ -18,6 +19,7 @@ const SSRPage = ({ message, errorMessage }) => {
           {errorMessage}
         </ExampleText>
       )}
+      <p>You can tell because the text above does not flash on refresh</p>
     </>
   );
 };

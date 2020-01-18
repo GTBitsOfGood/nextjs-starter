@@ -15,7 +15,12 @@ const HomePage = () => {
   return (
     <>
       <ExampleText>Welcome to Next.js!</ExampleText>
+      <h2>
+        This page is static rendered, because all API calls are made in
+        useEffect
+      </h2>
       <ExampleText>{payload}</ExampleText>
+      <p>You can tell because the text above flashes on page refresh</p>
     </>
   );
 };
