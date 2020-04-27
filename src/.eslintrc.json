@@ -17,6 +17,10 @@
     "settings": {
         "react": {
             "version": "detect"
-        }
+        },
+        "linkComponents": [
+            "Hyperlink",
+            {"name": "NavLink", "linkAttribute": "href"}
+        ]
     }
 }
