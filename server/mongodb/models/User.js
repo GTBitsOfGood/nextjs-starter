@@ -7,16 +7,16 @@ const UserSchema = new Schema({
     type: String,
     required: true,
     index: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   isAdmin: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
 export default mongoose.models.User || mongoose.model("User", UserSchema);

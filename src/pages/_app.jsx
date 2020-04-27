@@ -1,8 +1,8 @@
 import App from "next/app";
 import React from "react";
 import Head from "next/head";
-import Header from "../client/components/Header";
-import "../public/static/App.css";
+import Header from "../components/Header";
+import "../../public/static/App.css";
 
 class MyApp extends App {
   render() {

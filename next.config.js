@@ -10,6 +10,12 @@ if (!prod) {
 module.exports = withImages({
   env: {
     MONGO_DB: process.env.MONGO_DB,
-    JWT_SECRET: process.env.JWT_SECRET
-  }
+    JWT_SECRET: process.env.JWT_SECRET,
+  },
+  build: {
+    env: {
+      MONGO_DB: process.env.MONGO_DB,
+      JWT_SECRET: process.env.JWT_SECRET,
+    },
+  },
 });

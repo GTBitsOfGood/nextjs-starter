@@ -10,9 +10,9 @@ export default async () => {
       useUnifiedTopology: true,
       useFindAndModify: false,
       useCreateIndex: true,
-      dbName: urls.dbName
+      dbName: urls.dbName,
     })
-    .catch(e => {
+    .catch((e) => {
       console.error("Error connecting to database.");
 
       throw e;
