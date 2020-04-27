@@ -1,7 +1,7 @@
 {
   "name": "nextjs-starter",
   "version": "1.2.0",
-  "description": "",
+  "description": "A NextJS starter with API routes using MongoDB",
   "author": "Bits of Good <hello@bitsofgood.org>",
   "license": "MIT",
   "repository": {
