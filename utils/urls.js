@@ -2,8 +2,7 @@ const prod = process.env.NODE_ENV === "production";
 
 export default {
   baseUrl: prod ? process.env.PROD_URL : "http://localhost:3000",
-  dbUrl: process.env.MONGO_DB ?? "mongodb://localhost:27017",
-  dbName: process.env.DB_NAME,
+  dbUrl: process.env.MONGO_DB || "mongodb://localhost:27017",
   pages: {
     index: "/",
     ssr: "/ssr",
@@ -18,7 +17,7 @@ export default {
       signUp: "/api/user/sign-up",
       login: "/api/user/login",
       logout: "/api/user/logout",
-      getCurrent: "/api/user/verify-current",
+      getCurrent: "/api/user/get-current",
     },
   },
 };

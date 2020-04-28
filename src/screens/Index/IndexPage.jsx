@@ -14,7 +14,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <h2 className={classes.CenterText}>Welcome to Next.js!</h2>
+      <h2 className={classes.centerText}>Welcome to Next.js!</h2>
       <h3>
         This page is static rendered, because all API calls are made in
         useEffect
