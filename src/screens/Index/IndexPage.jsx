@@ -1,5 +1,5 @@
 import React from "react";
-import { helloWorld } from "../../actions/api";
+import { helloWorld } from "../../actions/general";
 import classes from "./IndexPage.module.css";
 
 const IndexPage = () => {

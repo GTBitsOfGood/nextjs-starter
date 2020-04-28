@@ -1,6 +1,6 @@
 import React from "react";
 import NavLink from "../NavLink";
-import routes from "../../../utils/routes";
+import routes from "./routes";
 import styles from "./Header.module.css";
 
 const Header = () => (

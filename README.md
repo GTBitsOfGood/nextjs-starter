@@ -4,45 +4,48 @@
 * React.js: Front-end
 * Next.js: API routes and server-side rendering
 * MongoDB: Permanently storing info
-* Zeit Now: Hosting and automatic GitHub build hooks
 * eslint: Automatically identifying and fixing code errors
 * prettier: Setting a common code style and fixing any issues
 
 ## Setup
 
-### Zeit Now Install
-
-- [Create a Zeit Now account](https://zeit.co)
-- Run `npm i -g now`, then type `now login`
-- On your dashboard, click `New Project` then `From GitHub` and select this project
-
 ### Updating Env Vars
 - For dev, update `.env` and `next.config.js`
-- For production, install Now using the instructions above, then
-- For production, to add, use `now secrets add <secret-name> <secret-value>`
-- For production, to remove, use `now secrets rm <secret-name>`
-
-## Running
+- For production, add the env vars to your host, **NEVER** commit `.env` to your VCS
 
 ### MongoDB
 
 A running instance of MongoDB is required this project.
-- By default, development uses MongoDB on your computer, if you would like to use an external database, enter `export MONGO_DEV_DB='URLHERE'` (macOS/Linux) or `setx MONGO_DEV_DB URLHERE` (Windows) and skip the instructions below.
-- [Download MongoDB Community Server](https://www.mongodb.com/download-center/community)
-- Go through the installation instructions.
-  - Atlas is recommended for basic testing.
-  - Leave the port at default 27017
-- Create the `nextjs` database. (or choose another name, but make sure to change it in `utils/urls.js`)
-- You're done!
+- Decide if you want to run MongoDB locally or remotely
+- Locally
+  1. [Download MongoDB Community Server](https://www.mongodb.com/download-center/community)
+  2. Go through the installation instructions.
+     - Leave the port at default 27017
+- Remotely
+  1. Create a MongoDB instance on MongoDB Atlas
+  2. In Security → Network Access: add the IP address `0.0.0.0/0` (all IPs)
+  3. In Security → Database Access: Add new database user
+  4. In Data Storage → Clusters: Find your cluster and click `Connect` → `Connect your application` and copy the connection string, set the username and password, and set this as `MONGO_DB` in `.env`
+- Create the `nextjs` database. (or choose another name, but make sure to change it in `.env`)
+- It's very helpful to install MongoDB Compass to see your database contents
 
-### Development
-- Setup MongoDB with the instructions above
+### Node
 - Clone this project to your computer
 - Navigate to this project in terminal and enter `npm install`
 - Rename `example.env` to `.env` and fill it out with the dev config
-- Run the dev version of this project by entering `npm run dev`
+
+## Running
+
+### Development
+1. Run the dev version of this project by entering `npm run dev`
+
+### Production
+1. Setup your host/vm and the necessary env vars
+2. Run `npm install`
+3. Run `npm run start`
+
 
 ### Styling
-- By default, this repository uses Next `9.2.0` for styles, which includes native support for global CSS and CSS modules
+- By default, this repository uses Next `^9.2.0` for styles, which includes native support for global CSS and CSS modules
 - However, this version only allows global css to be in `pages/_app.js`, which can cause issues with external packages
 - If you face this error, the solution is installing [`@zeit/next-css` and adding it to `next.config.js`](https://github.com/zeit/next-plugins/tree/master/packages/next-css), however you cannot use css modules and global css together with this package (and it defaults to global).

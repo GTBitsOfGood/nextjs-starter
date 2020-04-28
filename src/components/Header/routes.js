@@ -1,4 +1,4 @@
-import urls from "./urls";
+import urls from "../../../utils/urls";
 
 const routes = [
   {

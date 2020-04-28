@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { helloWorld } from "../../actions/api";
+import { helloWorld } from "../../actions/general";
 import classes from "./SSRPage.module.css";
 
 const SSRPage = ({ message, errorMessage }) => {

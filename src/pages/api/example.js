@@ -12,7 +12,7 @@ const handler = (req, res) =>
       })
     )
     .catch(() =>
-      res.status(201).json({
+      res.status(500).json({
         success: false,
         message: "Failed to run action!",
       })
