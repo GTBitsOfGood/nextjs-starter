@@ -14,6 +14,9 @@ To keep things modular, the resources are divided into folders namely `/screens`
     Similarly, any other files or utils must be placed in a separate directory.
   * To fix this, screens are placed in a separate directory from pages, and each in their own directory.
     This makes it very simple to keep the logic, styles, and utilities for each page in their separate space.
+  * Each screen behaves as a page, so `getInitialProps` and other Next.js helpers can be used.
+  * Each screen is also passed the prop `currentUser`, which is either null or an object containing
+    the user's data from the database.
 
 - ### [`/pages`](src/pages): Used for creating file-system routing to screens and creating API routes.
 
@@ -44,7 +47,11 @@ To keep things modular, the resources are divided into folders namely `/screens`
 
   * Each reusable component is placed in this directory with a similar structure to screens.
   * Create a directory for each component,
-    and include any necessary styles and utils for this component only in the same direcory.
+    and include any necessary styles and utils for this component only in the same directory.
+  * Each directory must include a `index.jsx` file that imports and export defaults the component.
+    This makes it easier to import the component from `/componentDir` instead of `/componentDir/component`.
+  * Any sub-components that are used by, and only by, this component, should be placed within their
+    own sub-directory within the component's directory.
 
 - ### [`/actions`](src/actions): Contains functions for calling API routes.
 

@@ -10,5 +10,11 @@ export default {
   },
   api: {
     example: "/api/example",
+    user: {
+      signUp: "/api/user/sign-up",
+      login: "/api/user/login",
+      logout: "/api/user/logout",
+      getCurrent: "/api/user/verify-current",
+    },
   },
 };
