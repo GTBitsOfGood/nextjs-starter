@@ -1,5 +1,4 @@
 .root {
-    width: 100%;
     display: flex;
     flex-direction: row;
     padding: 8px 4px;
@@ -7,7 +6,7 @@
     align-items: center;
 }
 
-.route {
+.route, .endRoute {
     color: white;
     padding: 12px 24px;
     margin: 0 16px;
@@ -17,6 +16,10 @@
     transition: 0.25s background-color;
 }
 
-.route:hover {
+.route:hover, .endRoute:hover, .selected {
     background-color: #002d2d;
+}
+
+.endRoute {
+    margin-left: auto;
 }
