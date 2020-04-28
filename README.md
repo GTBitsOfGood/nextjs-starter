@@ -30,20 +30,23 @@ A running instance of MongoDB is required this project.
 - It's very helpful to install MongoDB Compass to see your database contents
 
 ### Node
-- Clone this project to your computer
-- Navigate to this project in terminal and enter `npm install`
-- Rename `example.env` to `.env` and fill it out with the dev config
+1. Clone this project to your computer
+2. Navigate to this project in terminal and enter `npm install`
+3. Rename `example.env` to `.env` and fill it out with the dev config
 
 ## Running
 
 ### Development
-1. Run the dev version of this project by entering `npm run dev`
+To understand this code better, read the [Code Tour](/CODETOUR.md).
+1. Run `npm install`
+2. Run `npm run dev`
 
 ### Production
 1. Setup your host/vm and the necessary env vars
 2. Run `npm install`
 3. Run `npm run start`
 
+## Other Info
 
 ### Styling
 - By default, this repository uses Next `^9.2.0` for styles, which includes native support for global CSS and CSS modules
