@@ -25,3 +25,7 @@ html, body, #__next {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+*:focus:not(.focus-visible) {
+    outline: none;
+}

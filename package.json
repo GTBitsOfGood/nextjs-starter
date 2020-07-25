@@ -16,42 +16,41 @@
     "dev": "next -p 3000",
     "build": "next build",
     "start": "next build && next start",
+    "format": "prettier --write **/*.{jsx,js}",
     "lint": "eslint --fix --ext .jsx --ext .js ."
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run format"
     }
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "clsx": "^1.1.0",
+    "clsx": "^1.1.1",
     "dotenv": "^8.2.0",
+    "focus-visible": "^5.1.0",
     "isomorphic-unfetch": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.15",
-    "mongodb": "^3.5.6",
-    "mongoose": "^5.9.10",
-    "next": "^9.3.5",
+    "lodash": "^4.17.19",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.25",
+    "next": "^9.4.4",
     "next-images": "^1.4.0",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.2.5",
-    "lint-staged": "^10.1.7",
     "prettier": "2.0.5",
-    "prettier-eslint": "^9.0.1"
-  },
-  "lint-staged": {
-    "*.{jsx,js}": "eslint --cache --fix"
+    "prettier-eslint": "^11.0.0"
   }
 }

@@ -6,7 +6,9 @@ import Router from "next/router";
 import { getCurrentUser } from "../actions/User";
 import urls from "../../utils/urls";
 import Header from "../components/Header";
-import "../../public/static/App.css";
+import "focus-visible/dist/focus-visible.min.js";
+import "normalize.css";
+import "../../public/static/styles/App.css";
 
 const MyApp = ({ Component, pageProps, router, currentUser }) => (
   <>
