@@ -99,6 +99,9 @@ The utils directory includes any utilities needed for the frontend and backend.
   * This makes it easy use urls in the project, because the urls object only needs to be imported,
     and then urls can be changed at a later date without needing to search the code to replace urls as strings.
   * Plain strings should **NEVER** be used to reference pages/API routes, **ALWAYS** import the urls object.
+  * If a dynamic route is needed format it as `pageKey: "/somePage/[aKey]"` (with the corresponding page route being `/pages/somePage/[aKey].jsx`),
+    then use the [`NavLink`](src/components/NavLink/NavLink.jsx) component to navigate to this page:
+    `<NavLink href={pages.pageKey} hrefParts={{ aKey: 123 }}>Link</NavLink>`.
 
 ## Public Organization: [`public/`](public)
 

@@ -13,7 +13,6 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "linebreak-style": ["error", "unix"],
     "no-underscore-dangle": "off",
     "implicit-arrow-linebreak": "off",
     "no-console": "off",

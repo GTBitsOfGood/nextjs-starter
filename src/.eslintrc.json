@@ -24,7 +24,6 @@
     ]
   },
   "rules": {
-    "linebreak-style": ["error", "unix"],
     "no-underscore-dangle": "off",
     "react/jsx-props-no-spreading": "off",
     "implicit-arrow-linebreak": "off"
