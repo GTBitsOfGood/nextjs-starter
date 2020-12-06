@@ -16,13 +16,27 @@
     "dev": "next -p 3000",
     "build": "next build",
     "start": "next build && next start",
-    "format": "prettier --write **/*.{jsx,js}",
-    "lint": "eslint --fix --ext .jsx --ext .js ."
+    "lint": "eslint \"**/*.{js,jsx}\"",
+    "lint:fix": "eslint \"**/*.{js,jsx}\" --fix",
+    "format": "prettier \"**/*.{js,jsx}\" --write",
+    "format:check": "prettier \"**/*.{js,jsx}\" -l",
+    "secrets": "npm run secrets:logout && cross-env-shell BW_SESSION=`bw login product@bitsofgood.org --raw` \"npm run secrets:sync\"",
+    "secrets:logout": "(bw logout || exit 0)",
+    "secrets:login": "bw login product@bitsofgood.org",
+    "secrets:sync": "bw sync && bw get item [ID_OR_NAME_FROM_STEP_2] | fx .notes > \".env\""
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint"
+    ],
+    "*.{js,jsx,css}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -34,22 +48,26 @@
     "lodash": "^4.17.19",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.25",
-    "next": "^9.4.4",
-    "next-images": "^1.4.0",
+    "next": "^10.0.3",
+    "next-images": "^1.6.2",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@bitwarden/cli": "^1.13.3",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "fx": "^20.0.2",
     "husky": "^4.2.5",
+    "lint-staged": "^10.5.3",
     "prettier": "2.0.5",
     "prettier-eslint": "^11.0.0"
   }
