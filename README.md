@@ -6,19 +6,20 @@
 - Next.js: API routes and server-side rendering
 - MongoDB: Permanently storing info
 - eslint: Automatically identifying and fixing code errors
-- prettier: Setting a common code style and fixing any issues
+- prettier: Setting a common code style and fixing any issues. If you would like to adjust any prettier settings like quote style or include semicolons, look in `.prettierrc`
 
 ## Setup
 
 ### Initializing Env Vars
 
+- If you are an EM setting up a project for the first time, read [the Bitwarden guide here](https://gtbitsofgood.notion.site/Secrets-Passwords-Bitwarden-74c4806a1f29485b8fb85ea29f273ab9) before continuing forward.
 - Run `npm run secrets` to sync development secrets from Bitwarden and save them to a local `.env` file. Contact a leadership member for the Bitwarden password.
   - **Note**: If you are using Windows, enter `npm run secrets:login` and then `npm run secrets:sync` instead of the above script.
 
 ### Updating Env Vars
 
 - For dev, update `.env` and `next.config.js`
-- For production, add the env vars to your host, **NEVER** commit `.env` to your VCS
+- For production, add the env vars to your host, **NEVER** commit `.env` to your version control system.
 
 ### MongoDB
 

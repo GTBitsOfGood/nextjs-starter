@@ -12,7 +12,7 @@
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "prettier/react"
+    "prettier"
   ],
   "settings": {
     "react": {
