@@ -14,7 +14,7 @@ What does this PR change and why?
 
 ### Related Github Issues
 
-- [Issue Key](https:)
+- #[Number of Issue]
 - Or, remember to link to an issue on the sidebar
 
 ### Related PRs
