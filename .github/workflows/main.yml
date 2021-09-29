@@ -15,6 +15,7 @@ jobs:
 
       - name: Set pipeline
         id: pipeline
+        # if its a PR, then its for preview, else its for development or prod based on what it's being pushed to.
         run: echo ::set-output name=pipeline::${{ github.event_name == 'pull_request' && 'Preview' || (github.ref == 'refs/heads/production' && 'Production' || 'Development') }}
 
       - uses: chrnorm/deployment-action@releases/v1
