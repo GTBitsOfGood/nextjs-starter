@@ -8,17 +8,19 @@ import styles from "./Header.module.css";
 const Header = ({ loggedIn, currentRoute }) => (
   <div className={styles.root}>
     {routes
-      .filter((route) => (loggedIn && route.auth) || (!loggedIn && !route.auth))
+      // show the routes which don't require auth
+      // and the ones that require auth and being logged in
+      .filter((route) => (loggedIn && route.auth) || !route.auth)
       .map(({ name, link, atEnd }) => (
-        <NavLink href={link} key={name}>
-          <div
-            className={clsx(
-              atEnd ? styles.endRoute : styles.route,
-              currentRoute === link && styles.selected
-            )}
-          >
-            {name}
-          </div>
+        <NavLink
+          href={link}
+          className={clsx(
+            atEnd ? styles.endRoute : styles.route,
+            currentRoute === link && styles.selected
+          )}
+          key={name}
+        >
+          {name}
         </NavLink>
       ))}
   </div>

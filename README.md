@@ -7,14 +7,15 @@
 - MongoDB: Permanently storing info
 - eslint: Automatically identifying and fixing code errors
 - prettier: Setting a common code style and fixing any issues. If you would like to adjust any prettier settings like quote style or include semicolons, look in `.prettierrc`
+- yarn: Package management. If you do not have yarn, run `npm install -g yarn` to install yarn globally.
 
 ## Setup
 
 ### Initializing Env Vars
 
 - If you are an EM setting up a project for the first time, read [the Bitwarden guide here](https://gtbitsofgood.notion.site/Secrets-Passwords-Bitwarden-74c4806a1f29485b8fb85ea29f273ab9) before continuing forward.
-- Run `npm run secrets` to sync development secrets from Bitwarden and save them to a local `.env` file. Contact a leadership member for the Bitwarden password.
-  - **Note**: If you are using Windows, enter `npm run secrets:login` and then `npm run secrets:sync` instead of the above script.
+- Run `yarn secrets` to sync development secrets from Bitwarden and save them to a local `.env` file. Contact a leadership member for the Bitwarden password.
+  - **Note**: If you are using Windows, enter `yarn secrets:login` and then `yarn secrets:sync` instead of the above script.
 
 ### Updating Env Vars
 
@@ -26,7 +27,11 @@
 A running instance of MongoDB is required this project.
 
 - Decide if you want to run MongoDB locally or remotely
-- Locally
+- Locally (Docker (RECOMMENDED))
+  1. [Download Docker Desktop](https://www.docker.com/products/docker-desktop)
+  2. Run `docker run --name mongodb -d -p 27017:27017 mongo` in your terminal
+  3. Open Docker Desktop and confirm that your MongoDB image is running. It should exist on port 27017, and can be accessed.
+- Locally (Non-Docker)
   1. [Download MongoDB Community Server](https://www.mongodb.com/download-center/community)
   2. Go through the installation instructions.
      - Leave the port at default 27017
@@ -41,7 +46,7 @@ A running instance of MongoDB is required this project.
 ### Node
 
 1. Clone this project to your computer
-2. Navigate to this project in terminal and enter `npm install`
+2. Navigate to this project in terminal and enter `yarn`
 3. Rename `example.env` to `.env` and fill it out with the dev config
 
 ## Running
@@ -50,14 +55,14 @@ A running instance of MongoDB is required this project.
 
 To understand this code better, read the [Code Tour](/CODETOUR.md).
 
-1. Run `npm install`
-2. Run `npm run dev`
+1. Run `yarn`
+2. Run `yarn dev`
 
 ### Production
 
 1. Setup your host/vm and the necessary env vars
-2. Run `npm install`
-3. Run `npm run start`
+2. Run `yarn install`
+3. Run `yarn start`
 
 ## Other Info
 
@@ -66,3 +71,7 @@ To understand this code better, read the [Code Tour](/CODETOUR.md).
 - By default, this repository uses Next `^9.2.0` for styles, which includes native support for global CSS and CSS modules
 - However, this version only allows global css to be in `pages/_app.js`, which can cause issues with external packages
 - If you face this error, the solution is installing [`@zeit/next-css` and adding it to `next.config.js`](https://github.com/zeit/next-plugins/tree/master/packages/next-css), however you cannot use css modules and global css together with this package (and it defaults to global).
+
+### Deployment
+
+Follow this guide here: https://www.notion.so/gtbitsofgood/General-Deployment-Pointers-Vercel-763e769ef0074ff8b12c85c3d4809ba9

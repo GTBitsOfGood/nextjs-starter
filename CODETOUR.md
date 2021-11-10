@@ -15,15 +15,14 @@ To keep things modular, the resources are divided into folders namely `/screens`
   * To fix this, screens are placed in a separate directory from pages, and each in their own directory.
     This makes it very simple to keep the logic, styles, and utilities for each page in their separate space.
   * Each screen behaves as a page, so `getInitialProps` and other Next.js helpers can be used.
-  * Each screen is also passed the prop `currentUser`, which is either null or an object containing
-    the user's data from the database.
+  * Each screen is also passed the prop `currentUser`, which is either null or an object containing the user's data from the database.
+  * The one caveat to this is the special SSR functions like `getServerSideProps` and `getStaticProps` can not be called from the `screens` directory, as they are framework specific to `pages`. The workaround to this is maintaining these initial data calls in a `page`, and drilling the props down a level to `screens`.
 
 - ### [`/pages`](src/pages): Used for creating file-system routing to screens and creating API routes.
 
   * The `/src/pages` directory acts as file-system routing for our screens and for API routes.
   * For regular pages, `import` and `export default` the screen directly.
-  * API routes are placed in the `/src/pages/api` directory.
-    * To simplify API routes and promote code reuse, server-side actions are used from the `/server/actions` directory.
+  * **External** API routes are placed in the [src/pages/api](src/pages/api) directory.
     * Every API route must return a HTTP status code and body matching the template:  
       ```
       res.status(201).json({
@@ -40,8 +39,7 @@ To keep things modular, the resources are divided into folders namely `/screens`
       ```
       for errors. This makes processing the results much easier.
     * The request body can be accessed with `req.body` and cookies with `req.cookies`.
-
-  - [/pages/api](src/pages/api): Contains API routes
+  * To simplify API routes and promote code reuse, server-side actions are used from the `/server/actions` directory.
 
 - ### [`/components`](src/components): Contains reusable React components.
 
@@ -74,6 +72,8 @@ To keep things modular, the resources are divided into folders namely `/screens`
         return json.payload;
       });
     ```
+  * **IMPORTANT** Calling an internal API route while using SSR for initial data fetching is an antipattern. These actions should only be used on the client side.
+    * Instead, if access to server-side actions are required for SSR initial page load, directly import resolve asynchronous calls from the `/server/actions` directory into `/src/pages`.
 
 ## Server Organization: [`server/`](server)
 
@@ -84,7 +84,7 @@ The server directory includes the backend actions used in API routes separated b
   * Mongoose models should be placed within the `server/mongodb/models` directory.
     * The export for each model should follow the template:
       `export default mongoose.models.User ?? mongoose.model("User", UserSchema);`
-  * MongoDB (using Mongoose) actions should be placed within the `server/mongodb/actions` directory.
+  * MongoDB (using Mongoose) actions (i.e. queries and operations) should be placed within the `server/mongodb/actions` directory.
     * Each file should use the same name as the model, and include all related actions.
     * Each file needs to import `import mongoDB from "../index";`,
       and each function needs to include `await mongoDB();` (once per function) before any interactions are made with the database.
@@ -109,3 +109,11 @@ The public directory hosts any included files on the website.
 * [`/public`](public): Files placed in this directory can be accessed at `baseUrl/file`.
   Be **VERY** careful to not include a file with the same name as a page!
 * [`/public/static`](public/static): Files placed in this directory can be accessed at `baseUrl/static/file`.
+
+## Project Management: [`.github/`](.github)
+
+The hidden directory contains the configuration needed for CI/CD through Vercel as well as other GitHub related artifacts.
+* [`/.github/pull_request_template.md`](.github/pull_request_template.md): A Markdown file that is automatically loaded into a PR.
+* [`/.github/ISSUE_TEMPLATES`](.github/ISSUE_TEMPLATES): Markdown files placed in this directory describe issue templates for the repository. When using your preferred project management system, this may expedite and formalize how issues are created.
+* [`/.github/workflows`](.github/workflows): GitHub Actions workflows. These are often used for CI/CD. The `main.yml` workflow that currently exists in this repository is a Vercel actions that creates preview deployments depending on branch.
+* [https://stackoverflow.com/questions/60507097/is-there-an-overview-of-what-can-go-into-a-github-dot-github-directory](Link to additional items that can be configured in .github)

@@ -14,15 +14,15 @@ const routes = [
     atEnd: false,
   },
   {
+    name: "App Home",
+    link: urls.pages.app.home,
+    auth: true,
+  },
+  {
     name: "Login",
     link: urls.pages.login,
     auth: false,
     atEnd: true,
-  },
-  {
-    name: "App Home",
-    link: urls.pages.app.home,
-    auth: true,
   },
 ];
 
