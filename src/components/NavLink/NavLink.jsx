@@ -30,6 +30,7 @@ const NavLink = ({ href, hrefParts, children, className, ...rest }) => {
     <Link
       href={href}
       passHref={children != null && !isString(children)}
+      className={className}
       {...optionalProps}
       {...rest}
     >

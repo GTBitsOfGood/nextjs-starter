@@ -25,6 +25,8 @@ const MyApp = ({ Component, pageProps, router, currentUser }) => (
 );
 
 MyApp.getInitialProps = async (appContext) => {
+  // TODO: THIS AUTH SYSTEM IS NOT BEST PRACTICE:
+  // https://github.com/vvo/iron-session
   const { res } = appContext.ctx;
 
   const appProps = await App.getInitialProps(appContext);
@@ -33,7 +35,7 @@ MyApp.getInitialProps = async (appContext) => {
 
   const route = appContext.ctx.asPath;
 
-  return getCurrentUser(cookies)
+  const computedProps = await getCurrentUser(cookies)
     .then((user) => {
       if (route === "/login") {
         if (res) {
@@ -61,6 +63,8 @@ MyApp.getInitialProps = async (appContext) => {
 
       return appProps;
     });
+
+  return computedProps;
 };
 
 MyApp.propTypes = {
