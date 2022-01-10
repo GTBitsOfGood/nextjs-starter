@@ -13,3 +13,6 @@ assignees: ''
 
 ### Acceptance Criteria
 [ ] List of criteria needed to in order to satisfy this requirement.
+
+### Other Notes
+* Pointers, tips, and links to pieces of code or resources that might help in solving this ticket.
