@@ -15,13 +15,13 @@
 ### Initializing Env Vars
 
 - If you are an EM setting up a project for the first time, read [the Bitwarden guide here](https://gtbitsofgood.notion.site/Secrets-Passwords-Bitwarden-74c4806a1f29485b8fb85ea29f273ab9) before continuing forward.
-- Run `yarn secrets` to sync development secrets from Bitwarden and save them to a local `.env` file. Contact a leadership member for the Bitwarden password.
+- Run `yarn secrets` to sync development secrets from Bitwarden and save them to a local `.env.local` file. Contact a leadership member for the Bitwarden password.
   - **Note**: If you are using Windows, enter `yarn secrets:login` and then `yarn secrets:sync` instead of the above script.
 
 ### Updating Env Vars
 
-- For dev, update `.env` and `next.config.js`
-- For production, add the env vars to your host, **NEVER** commit `.env` to your version control system.
+- For dev, update `.env.local` and `next.config.js`
+- For production, add the env vars to your host, **NEVER** commit `.env.local` to your version control system.
 
 ### MongoDB
 
@@ -40,8 +40,8 @@ A running instance of MongoDB is required this project.
   1. Create a MongoDB instance on MongoDB Atlas
   2. In Security → Network Access: add the IP address `0.0.0.0/0` (all IPs)
   3. In Security → Database Access: Add new database user
-  4. In Data Storage → Clusters: Find your cluster and click `Connect` → `Connect your application` and copy the connection string, set the username and password, and set this as `MONGO_DB` in `.env`
-- Create the `nextjs` database. (or choose another name, but make sure to change it in `.env`)
+  4. In Data Storage → Clusters: Find your cluster and click `Connect` → `Connect your application` and copy the connection string, set the username and password, and set this as `MONGO_DB` in `.env.local`
+- Create the `nextjs` database. (or choose another name, but make sure to change it in `.env.local`)
 - It's very helpful to install MongoDB Compass to see your database contents
 
 ### Node
