@@ -1,14 +1,13 @@
-import { removeCookie } from "../../../../utils/tokens";
+import { withSessionRoute } from "src/utils/lib/session";
 
 // @route   GET api/user/logout
 // @desc    Logout current user
 // @access  Public
-const handler = (req, res) => {
-  res.setHeader("Set-Cookie", removeCookie());
-
+const handler = async (req, res) => {
+  req.session.destroy();
   return res.status(200).json({
     success: true,
   });
 };
 
-export default handler;
+export default withSessionRoute(handler);

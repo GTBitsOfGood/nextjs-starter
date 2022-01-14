@@ -1,9 +1,9 @@
 import fetch from "isomorphic-unfetch";
-import urls from "../../utils/urls";
+import urls from "src/utils/urls";
 
 export const signUp = (username, password) =>
   fetch(urls.baseUrl + urls.api.user.signUp, {
-    method: "post",
+    method: "POST",
     mode: "same-origin",
     credentials: "include",
     headers: {

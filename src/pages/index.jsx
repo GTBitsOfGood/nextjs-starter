@@ -1,3 +1,3 @@
-import IndexPage from "../screens/Index";
+import IndexPage from "src/screens/Index";
 
 export default IndexPage;

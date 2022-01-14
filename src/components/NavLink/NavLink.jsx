@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import isString from "lodash/isString";
-import isObject from "lodash/isPlainObject";
 
 /**
  * Component for routing to different pages
@@ -16,7 +14,7 @@ import isObject from "lodash/isPlainObject";
 const NavLink = ({ href, hrefParts, children, className, ...rest }) => {
   const optionalProps = {};
 
-  if (hrefParts != null && isObject(hrefParts)) {
+  if (hrefParts != null && typeof hrefParts === "object") {
     let as = href;
 
     Object.keys(hrefParts).forEach((key) => {
@@ -29,12 +27,16 @@ const NavLink = ({ href, hrefParts, children, className, ...rest }) => {
   return (
     <Link
       href={href}
-      passHref={children != null && !isString(children)}
+      passHref={children != null && !(typeof children === "string")}
       className={className}
       {...optionalProps}
       {...rest}
     >
-      {isString(children) ? <a className={className}>{children}</a> : children}
+      {typeof children === "string" ? (
+        <a className={className}>{children}</a>
+      ) : (
+        children
+      )}
     </Link>
   );
 };
