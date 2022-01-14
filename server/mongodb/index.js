@@ -5,10 +5,6 @@ export default async () => {
 
   await mongoose
     .connect(process.env.MONGO_DB, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
       dbName: process.env.DB_NAME,
     })
     .catch((e) => {
