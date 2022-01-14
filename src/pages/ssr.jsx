@@ -12,6 +12,7 @@ export const getServerSideProps = withSessionSsr(
     const user = req.session.user;
     if (user) {
       props.user = user;
+      // Additional api calls can be made to fetch more user related data in here.
     }
     const payload = await exampleServerCall();
     if (payload.success) props.message = payload.payload;
