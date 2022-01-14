@@ -48,7 +48,7 @@ A running instance of MongoDB is required this project.
 
 1. Clone this project to your computer
 2. Navigate to this project in terminal and enter `yarn`
-3. Rename `example.env` to `.env` and fill it out with the dev config
+3. Rename `example.env` to `.env.local` and fill it out with the dev config
 
 ## Running
 
@@ -69,6 +69,7 @@ To understand this code better, read the [Code Tour](/CODETOUR.md).
 
 ### Styling
 
+- This is dated info. We are on Next 11 now.
 - By default, this repository uses Next `^9.2.0` for styles, which includes native support for global CSS and CSS modules
 - However, this version only allows global css to be in `pages/_app.js`, which can cause issues with external packages
 - If you face this error, the solution is installing [`@zeit/next-css` and adding it to `next.config.js`](https://github.com/zeit/next-plugins/tree/master/packages/next-css), however you cannot use css modules and global css together with this package (and it defaults to global).
