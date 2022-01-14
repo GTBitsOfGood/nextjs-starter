@@ -47,7 +47,7 @@ A running instance of MongoDB is required this project.
 
 1. Clone this project to your computer
 2. Navigate to this project in terminal and enter `yarn`
-3. Rename `example.env` to `.env` and fill it out with the dev config
+3. Rename `example.env` to `.env.local` and fill it out with the dev config
 
 ## Running
 
