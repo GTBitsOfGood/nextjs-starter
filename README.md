@@ -5,6 +5,7 @@
 - React.js: Front-end
 - Next.js: API routes and server-side rendering
 - MongoDB: Permanently storing info
+- iron-session: Authentication session handling for SSR/SSG
 - eslint: Automatically identifying and fixing code errors
 - prettier: Setting a common code style and fixing any issues. If you would like to adjust any prettier settings like quote style or include semicolons, look in `.prettierrc`
 - yarn: Package management. If you do not have yarn, run `npm install -g yarn` to install yarn globally.

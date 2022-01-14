@@ -1,10 +1,15 @@
 import React from "react";
-import Router from "next/router";
-import { login, signUp } from "../../actions/User";
-import urls from "../../../utils/urls";
+import { login, signUp } from "src/actions/User";
+import urls from "src/utils/urls";
 import classes from "./LoginPage.module.css";
+import useUser from "src/utils/lib/useUser";
 
 const LoginPage = () => {
+  const { mutateUser } = useUser({
+    redirectIfFound: true,
+    redirectTo: urls.pages.app.home,
+  });
+
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [isRegistering, setIsReg] = React.useState(false);
@@ -13,14 +18,14 @@ const LoginPage = () => {
     event.preventDefault();
 
     if (isRegistering) {
-      return signUp(username, password)
-        .then(() => Router.replace(urls.pages.app.home))
-        .catch((error) => window.alert(error.message));
+      return mutateUser(
+        signUp(username, password).catch((error) => window.alert(error.message))
+      );
     }
 
-    return login(username, password)
-      .then(() => Router.replace(urls.pages.app.home))
-      .catch((error) => window.alert(error.message));
+    return mutateUser(
+      login(username, password).catch((error) => window.alert(error.message))
+    );
   };
 
   return (

@@ -1,10 +1,10 @@
 # Code Tour
 
-A quick introduction to the folders and files in this repo.
+A quick introduction to the folders and files in this repo. Keep in mind that in Next files can be imported from the root base directory.
 
 ## Source Organization: [`src/`](src)
 
-To keep things modular, the resources are divided into folders namely `/screens`, `/pages`, `/components`, `/actions`.
+To keep things modular, the resources are divided into folders namely `/screens`, `/pages`, `/components`, `/actions`, and `utils`.
 
 - ### [`/screens`](src/screens): Contains Next.js pages along with their necessary styles and any extra files.
 
@@ -75,6 +75,18 @@ To keep things modular, the resources are divided into folders namely `/screens`
   * **IMPORTANT** Calling an internal API route while using SSR for initial data fetching is an antipattern. These actions should only be used on the client side.
     * Instead, if access to server-side actions are required for SSR initial page load, directly import resolve asynchronous calls from the `/server/actions` directory into `/src/pages`.
 
+- ### [`utils/`](utils): Contains custom hooks, path configuration, SWR setup, and iron-session configuration.
+
+### [`urls.js`](utils/urls.js): Exports an object containing the urls for each page and API route.
+
+  * After creating a page or API route, the path needs to be added to `urls.js` immediately.
+  * This makes it easy use urls in the project, because the urls object only needs to be imported,
+    and then urls can be changed at a later date without needing to search the code to replace urls as strings.
+  * Plain strings should **NEVER** be used to reference pages/API routes, **ALWAYS** import the urls object.
+  * If a dynamic route is needed format it as `pageKey: "/somePage/[aKey]"` (with the corresponding page route being `/pages/somePage/[aKey].jsx`),
+    then use the [`NavLink`](src/components/NavLink/NavLink.jsx) component to navigate to this page:
+    `<NavLink href={pages.pageKey} hrefParts={{ aKey: 123 }}>Link</NavLink>`.
+
 ## Server Organization: [`server/`](server)
 
 The server directory includes the backend actions used in API routes separated by their type.
@@ -88,20 +100,6 @@ The server directory includes the backend actions used in API routes separated b
     * Each file should use the same name as the model, and include all related actions.
     * Each file needs to import `import mongoDB from "../index";`,
       and each function needs to include `await mongoDB();` (once per function) before any interactions are made with the database.
-
-## Utils Organization: [`utils/`](utils)
-
-The utils directory includes any utilities needed for the frontend and backend.
-
-- ### [`urls.js`](utils/urls.js): Exports an object containing the urls for each page and API route.
-
-  * After creating a page or API route, the path needs to be added to `urls.js` immediately.
-  * This makes it easy use urls in the project, because the urls object only needs to be imported,
-    and then urls can be changed at a later date without needing to search the code to replace urls as strings.
-  * Plain strings should **NEVER** be used to reference pages/API routes, **ALWAYS** import the urls object.
-  * If a dynamic route is needed format it as `pageKey: "/somePage/[aKey]"` (with the corresponding page route being `/pages/somePage/[aKey].jsx`),
-    then use the [`NavLink`](src/components/NavLink/NavLink.jsx) component to navigate to this page:
-    `<NavLink href={pages.pageKey} hrefParts={{ aKey: 123 }}>Link</NavLink>`.
 
 ## Public Organization: [`public/`](public)
 

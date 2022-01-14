@@ -1,5 +1,5 @@
 import fetch from "isomorphic-unfetch";
-import urls from "../../utils/urls";
+import urls from "src/utils/urls";
 
 export const helloWorld = () =>
   fetch(urls.baseUrl + urls.api.example, {

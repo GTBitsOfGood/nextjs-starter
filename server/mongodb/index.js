@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-import urls from "../../utils/urls";
 
 export default async () => {
   if (mongoose.connections[0].readyState) return;
 
   await mongoose
-    .connect(urls.dbUrl, {
+    .connect(process.env.MONGO_DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
