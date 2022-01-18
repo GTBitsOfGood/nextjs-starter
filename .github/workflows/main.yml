@@ -8,6 +8,18 @@ on:
   pull_request:
     branches: [main]
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint files and run type-checks
+        run: yarn lint
   deploy:
     runs-on: ubuntu-latest
     steps:
