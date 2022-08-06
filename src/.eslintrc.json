@@ -20,7 +20,7 @@
     },
     "linkComponents": [
       "Hyperlink",
-      {"name": "NavLink", "linkAttribute": "href"}
+      { "name": "NavLink", "linkAttribute": "href" }
     ]
   },
   "rules": {
