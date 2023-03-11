@@ -54,7 +54,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
-    "@bitwarden/cli": "^1.17.1",
+    "@bitwarden/cli": "^2023.2.0",
     "@next/eslint-plugin-next": "^12.0.8",
     "cross-env": "^7.0.3",
     "eslint": "^8.7.0",
